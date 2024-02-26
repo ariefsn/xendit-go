@@ -165,7 +165,8 @@ func (a *InvoiceApiService) CreateInvoiceExecute(r ApiCreateInvoiceRequest) (*In
 	localVarPostBody = r.createInvoiceRequest
 	req, err := a.client.PrepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, common.NewXenditSdkError(nil, "", "Error creating HTTP request: InvoiceApiService.CreateInvoiceExecute")
+		b := []byte{}
+		return localVarReturnValue, nil, common.NewXenditSdkError(&b, "", "Error creating HTTP request: InvoiceApiService.CreateInvoiceExecute")
 	}
 
 	localVarHTTPResponse, err := a.client.CallAPI(req)
