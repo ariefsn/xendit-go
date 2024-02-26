@@ -169,6 +169,9 @@ func (a *InvoiceApiService) CreateInvoiceExecute(r ApiCreateInvoiceRequest) (*In
 	}
 
 	localVarHTTPResponse, err := a.client.CallAPI(req)
+	if err != nil {
+		return localVarReturnValue, nil, common.NewXenditSdkError(nil, "", "Error call API: InvoiceApiService.CreateInvoiceExecute"+err.Error())
+	}
 
 	localVarBody, _ := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
